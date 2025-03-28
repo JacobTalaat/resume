@@ -1,103 +1,275 @@
-import Image from "next/image";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "My Portfolio",
+  description: "Welcome to my portfolio website",
+};
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const skills = {
+    Frontend: ["React.js", "Next.js", "HTML", "CSS", "JavaScript"],
+    Backend: ["Express.js", "Node.js", "MongoDB", "SQL"],
+    Languages: ["C++", "Python", "Java", "JavaScript"],
+  };
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const projects = [
+    {
+      title: "Digital Wallet System",
+      period: "February 2024 - July 2024",
+      description:
+        "A C++-based digital wallet system using data structures to optimize transaction management. Features include user account management, secure transactions, and administrative controls.",
+      technologies: ["C++", "Data Structures", "File Handling", "Security"],
+      link: "#",
+    },
+    {
+      title: "Self-Diagnosis System",
+      period: "March 2023 – July 2023",
+      description:
+        "A medical self-diagnosis system that helps patients get preliminary diagnoses based on symptoms. Includes patient profiles and doctor recommendations.",
+      technologies: ["C++", "Algorithms", "Database Design"],
+      link: "#",
+    },
+    {
+      title: "Web Development Projects",
+      period: "Summer 2023",
+      description:
+        "Developed various web applications during internship at Wxora, implementing modern web development practices and SDLC.",
+      technologies: ["React.js", "Next.js", "Express.js", "MongoDB"],
+      link: "#",
+    },
+  ];
+
+  return (
+    <main>
+      <section className="hero">
+        <div className="container">
+          <div className="hero-content animate-fadeIn">
+            <h1 className="hero-title">
+              Hi, I'm{" "}
+              <span style={{ color: "var(--primary-color)" }}>
+                Jacob Moawad
+              </span>
+            </h1>
+            <p className="hero-subtitle">
+              Junior Software Engineer | Full Stack Developer | Computer Science
+              Student
+            </p>
+            <div
+              style={{ display: "flex", gap: "1rem", justifyContent: "center" }}
+            >
+              <a href="#contact" className="button button-primary">
+                Get in Touch
+              </a>
+              <a href="#projects" className="button button-outline">
+                View Projects
+              </a>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+
+      <section id="about">
+        <div className="container">
+          <h2 className="section-title">About Me</h2>
+          <div className="grid grid-2">
+            <div className="animate-fadeIn" style={{ animationDelay: "0.2s" }}>
+              <p>
+                I am a Junior Software Engineer studying Computer Science at
+                NJIT, with a strong foundation from Ain Shams University.
+                Passionate about full-stack development, I build scalable web
+                applications using React.js, Next.js, and Express.js.
+              </p>
+              <br />
+              <p>
+                While studying Computer Science at NJIT and working at Taco
+                Bell, I continuously seek opportunities to expand my skills. I
+                am eager to learn the latest technologies and apply them to
+                real-world projects. My goal is to develop high-performance
+                applications that enhance user experience and business
+                efficiency.
+              </p>
+            </div>
+            <div className="animate-fadeIn" style={{ animationDelay: "0.4s" }}>
+              <div className="card">
+                <h3>Contact Information</h3>
+                <p>📍 Linden, NJ</p>
+                <p>📞 (908)-494-5095</p>
+                <p>✉️ jacobtalat222@gmail.com</p>
+              </div>
+              <div className="card" style={{ marginTop: "1rem" }}>
+                <h3>Experience</h3>
+                <p>
+                  <strong>Wxora</strong> - Summer Internship
+                </p>
+                <p>Cairo, Egypt (August 2023 - September 2023)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="education" style={{ backgroundColor: "var(--bg-alt)" }}>
+        <div className="container">
+          <h2 className="section-title">Education</h2>
+          <div className="grid grid-3">
+            <div className="card animate-fadeIn">
+              <h3>New Jersey Institute of Technology</h3>
+              <p>Computer Science</p>
+              <p>August 2024-Present</p>
+              <p>Newark, NJ</p>
+            </div>
+            <div
+              className="card animate-fadeIn"
+              style={{ animationDelay: "0.2s" }}
+            >
+              <h3>Ain Shams University</h3>
+              <p>Computer Science AI Program</p>
+              <p>September 2022 - July 2024</p>
+              <p>GPA: 3.855</p>
+            </div>
+            <div
+              className="card animate-fadeIn"
+              style={{ animationDelay: "0.4s" }}
+            >
+              <h3>Azza Zidan Experimental Language School</h3>
+              <p>High School</p>
+              <p>September 2019 - August 2022</p>
+              <p>Top 3 in class with 83% score</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills">
+        <div className="container">
+          <h2 className="section-title">Skills</h2>
+          <div className="grid grid-3">
+            {Object.entries(skills).map(([category, skillList], index) => (
+              <div
+                key={category}
+                className="card animate-fadeIn"
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                <h3>{category}</h3>
+                <ul style={{ listStyle: "none", marginTop: "1rem" }}>
+                  {skillList.map((skill) => (
+                    <li key={skill} style={{ marginBottom: "0.5rem" }}>
+                      {skill}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" style={{ backgroundColor: "var(--bg-alt)" }}>
+        <div className="container">
+          <h2 className="section-title">Projects</h2>
+          <div className="grid grid-3">
+            {projects.map((project, index) => (
+              <div
+                key={project.title}
+                className="card animate-fadeIn"
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                <h3>{project.title}</h3>
+                <p style={{ color: "var(--text-light)", marginBottom: "1rem" }}>
+                  {project.period}
+                </p>
+                <p>{project.description}</p>
+                <div style={{ marginTop: "1rem" }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexWrap: "wrap",
+                      gap: "0.5rem",
+                      marginBottom: "1rem",
+                    }}
+                  >
+                    {project.technologies.map((tech) => (
+                      <span
+                        key={tech}
+                        style={{
+                          backgroundColor: "var(--primary-color)",
+                          color: "white",
+                          padding: "0.25rem 0.75rem",
+                          borderRadius: "1rem",
+                          fontSize: "0.875rem",
+                        }}
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  <a href={project.link} className="button button-primary">
+                    View Project
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div className="container">
+          <h2 className="section-title">Get in Touch</h2>
+          <div style={{ maxWidth: "600px", margin: "0 auto" }}>
+            <form className="animate-fadeIn">
+              <div style={{ marginBottom: "1rem" }}>
+                <label htmlFor="name">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  style={{
+                    width: "100%",
+                    padding: "0.5rem",
+                    borderRadius: "0.25rem",
+                    border: "1px solid var(--text-light)",
+                  }}
+                />
+              </div>
+              <div style={{ marginBottom: "1rem" }}>
+                <label htmlFor="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  style={{
+                    width: "100%",
+                    padding: "0.5rem",
+                    borderRadius: "0.25rem",
+                    border: "1px solid var(--text-light)",
+                  }}
+                />
+              </div>
+              <div style={{ marginBottom: "1rem" }}>
+                <label htmlFor="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={4}
+                  required
+                  style={{
+                    width: "100%",
+                    padding: "0.5rem",
+                    borderRadius: "0.25rem",
+                    border: "1px solid var(--text-light)",
+                  }}
+                />
+              </div>
+              <button type="submit" className="button button-primary">
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
